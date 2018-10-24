@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sample-provider
+  cloud:
+    zookeeper:
+      connect-string: 106.12.97.129:2181

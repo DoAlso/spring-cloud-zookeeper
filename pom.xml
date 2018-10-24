@@ -8,6 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>cloud-config-center</module>
+		<module>cloud-sample-provider</module>
+		<module>cloud-sample-consumer</module>
 	</modules>
 	<packaging>pom</packaging>
 

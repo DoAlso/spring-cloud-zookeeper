@@ -1,0 +1,8 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: sample-consumer
+  cloud:
+    zookeeper:
+      connect-string: 106.12.97.129:2181
