@@ -6,3 +6,12 @@ spring:
   cloud:
     zookeeper:
       connect-string: 106.12.97.129:2181
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
