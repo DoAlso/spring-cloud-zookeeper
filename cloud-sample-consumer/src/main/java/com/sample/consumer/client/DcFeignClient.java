@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * configuration配置完全控制每一个FeignClient
  * 的私有配置
  */
-@FeignClient(name = "sample-provider",fallbackFactory = DcFeignClientFallbackFactory.class)
+@FeignClient(name = "sample-provider",fallback = DcFeignClientFallback.class,fallbackFactory = DcFeignClientFallbackFactory.class)
 public interface DcFeignClient {
 
     @GetMapping("/dc")

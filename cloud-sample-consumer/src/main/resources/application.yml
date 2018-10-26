@@ -8,9 +8,9 @@ spring:
       connect-string: 106.12.97.129:2181
 
 
-#sample-consumer:
-#  ribbon:
-#    listOfServers: http://localhost:8081
+sample-consumer:
+  ribbon:
+    listOfServers: http://localhost:8081
 
 
 feign:
