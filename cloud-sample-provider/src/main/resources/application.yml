@@ -6,3 +6,18 @@ spring:
   cloud:
     zookeeper:
       connect-string: 106.12.97.129:2181
+
+huawei:
+  obs:
+    access-key: KZYQW9GQUYIU5G7ONCAV
+    secret-key: 65nxJddaf9w17QNeVFi3Rwkp3Oh0fxBqiPvO6rHe
+    end-points: obs.cn-north-1.myhwclouds.com
+    https-only: true
+    socket-timeout: 30000
+    connection-timeout: 10000
+  dis:
+    access-key: 3TWL7VJQ4IM45X3DAMLF
+    secret-key: i1aCblcgP4ZyoUwBHZnWd4rJCb5skN2Ya0LzSix5
+    region: cn-north-1
+    end-point: https://dis.cn-north-1.myhuaweicloud.com:20004
+    project-id: 3c9ff3e423154e03bb8d65cfc5ae0d67
