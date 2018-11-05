@@ -1,5 +1,7 @@
 package com.cloud.provider.dis;
 
+import com.huaweicloud.dis.iface.data.response.Record;
+
 /**
  * @ClassName DISStreamCollector
  * @Description TODO
@@ -10,8 +12,8 @@ public interface DISStreamCollector {
 
     /**
      * 数据采集
-     * @param object
+     * @param record
      */
-    void collection(Object object);
+    void collection(Record record);
 
 }

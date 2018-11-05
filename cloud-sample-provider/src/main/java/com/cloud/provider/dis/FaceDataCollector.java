@@ -1,6 +1,7 @@
 package com.cloud.provider.dis;
 
 import com.cloud.provider.service.TestService;
+import com.huaweicloud.dis.iface.data.response.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class FaceDataCollector implements DISStreamCollector {
     private TestService testService;
 
     @Override
-    public void collection(Object object) {
-        testService.doInsert(object);
+    public void collection(Record record) {
+        testService.doInsert(record);
     }
 }

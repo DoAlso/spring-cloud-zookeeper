@@ -27,15 +27,15 @@ public class DISStreamReaderRunner implements ApplicationRunner {
     @Autowired
     private FaceDataCollector faceDataCollector;
 
-    private List<String> stringMap = Arrays.asList("dis-face","dis-flow");
+    private List<String> stringMap = Arrays.asList("dis-flow","dis-face");
 
     @Override
     public void run(ApplicationArguments args) {
         DISStreamPollReader disStreamReader = new DISStreamPollReader();
         disStreamReader.setDisStreamCollector(faceDataCollector);
-        DISStreamReaderStarter readerRunner = new DISStreamReaderStarter(
+        DISStreamReaderStarter readerStarter = new DISStreamReaderStarter(
                 new ThreadPoolExecutor(1,5,60L, TimeUnit.SECONDS,new LinkedBlockingQueue<>()),
                 stringMap,disStreamReader,disProperties);
-        readerRunner.start();
+        readerStarter.start();
     }
 }
