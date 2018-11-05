@@ -5,7 +5,7 @@ import com.huaweicloud.dis.DIS;
 /**
  * @author Hyx
  */
-public interface DIStreamReader {
+public interface DISStreamReader {
 
    /**
     * 策略模式读取DIS

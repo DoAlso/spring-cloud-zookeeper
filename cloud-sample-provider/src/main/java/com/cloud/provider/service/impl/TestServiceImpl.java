@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements TestService {
 
     @Override
-    public void doInsert() {
-        System.out.println("执行OBS相关的插入操作");
+    public void doInsert(Object object) {
+        System.out.println("执行OBS相关的插入操作"+object.toString());
     }
 }

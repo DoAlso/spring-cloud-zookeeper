@@ -11,7 +11,7 @@ public class DISUtil {
 
     private static DIS dis;
 
-    private static DIStreamReader diStreamReader;
+    private static DISStreamReader diStreamReader;
 
 
     public static DIS getInstance(DISConfiguration disProperties) {
@@ -39,7 +39,7 @@ public class DISUtil {
         diStreamReader.reader(dis,streamName);
     }
 
-    public static void setDiStreamReader(DIStreamReader diStreamReader) {
+    public static void setDiStreamReader(DISStreamReader diStreamReader) {
         DISUtil.diStreamReader = diStreamReader;
     }
 }
