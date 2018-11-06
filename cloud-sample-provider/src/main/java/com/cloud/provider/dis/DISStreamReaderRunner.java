@@ -27,7 +27,7 @@ public class DISStreamReaderRunner implements ApplicationRunner {
     @Autowired
     private FaceDataCollector faceDataCollector;
 
-    private List<String> stringMap = Arrays.asList("dis-flow","dis-face");
+    private List<String> stringMap = Arrays.asList("dis-flow","dis-http");
 
     @Override
     public void run(ApplicationArguments args) {
