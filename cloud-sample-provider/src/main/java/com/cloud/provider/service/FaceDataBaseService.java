@@ -1,12 +1,15 @@
 package com.cloud.provider.service;
 
+import com.cloud.provider.bean.FaceSetInfo;
+
 public interface FaceDataBaseService {
 
     /**
      * 创建人脸库
+     * @param faceSetInfo
      * @throws Exception
      */
-    boolean createFaceDataBase() throws Exception;
+    boolean createFaceDataBase(FaceSetInfo faceSetInfo) throws Exception;
 
     /**
      * 读取指定项目下所有的人脸库
