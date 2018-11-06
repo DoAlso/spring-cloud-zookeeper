@@ -1,4 +1,4 @@
-package com.cloud.provider.http;
+package com.cloud.provider.face;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -22,10 +22,19 @@ import com.cloud.sdk.http.HttpMethodName;
  */
 public class FaceHttpClient {
 
+    /**
+     *
+     * @param serviceName
+     * @param region
+     * @param ak
+     * @param sk
+     * @param requestUrl
+     * @param putBody
+     */
     public static void put(String serviceName,String region,String ak, String sk, String requestUrl,String putBody) {
         AccessService accessService = null;
         try {
-            Map<String, String> header = new HashMap<String, String>();
+            Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
             accessService = new AccessServiceImpl(serviceName, region, ak, sk);
             URL url = new URL(requestUrl);
@@ -46,11 +55,21 @@ public class FaceHttpClient {
 
     }
 
+
+    /**
+     *
+     * @param serviceName
+     * @param region
+     * @param ak
+     * @param sk
+     * @param requestUrl
+     * @param putBody
+     */
     public static void patch(String serviceName,String region,String ak, String sk, String requestUrl, String putBody) {
 
         AccessService accessService = null;
         try {
-            Map<String, String> header = new HashMap<String, String>();
+            Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
             accessService = new AccessServiceImpl(serviceName, region, ak, sk);
             URL url = new URL(requestUrl);
@@ -69,12 +88,20 @@ public class FaceHttpClient {
 
     }
 
+    /**
+     *
+     * @param serviceName
+     * @param region
+     * @param ak
+     * @param sk
+     * @param requestUrl
+     */
     public static void delete(String serviceName,String region,String ak, String sk, String requestUrl) {
 
         AccessService accessService = null;
 
         try {
-            Map<String, String> header = new HashMap<String, String>();
+            Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
             accessService = new AccessServiceImpl(serviceName, region, ak, sk);
             URL url = new URL(requestUrl);
@@ -91,12 +118,20 @@ public class FaceHttpClient {
 
     }
 
+    /**
+     *
+     * @param serviceName
+     * @param region
+     * @param ak
+     * @param sk
+     * @param requestUrl
+     */
     public static void get(String serviceName,String region,String ak, String sk, String requestUrl) {
 
         AccessService accessService = null;
 
         try {
-            Map<String, String> header = new HashMap<String, String>();
+            Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
             accessService = new AccessServiceImpl(serviceName, region, ak, sk);
             URL url = new URL(requestUrl);
@@ -113,6 +148,15 @@ public class FaceHttpClient {
 
     }
 
+    /**
+     *
+     * @param serviceName
+     * @param region
+     * @param ak
+     * @param sk
+     * @param requestUrl
+     * @param postbody
+     */
     public static void post(String serviceName,String region,String ak, String sk, String requestUrl,
                             String postbody) {
 
@@ -129,7 +173,7 @@ public class FaceHttpClient {
         HttpResponse response;
 
         try {
-            Map<String, String> header = new HashMap<String, String>();
+            Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
             response = accessService.access(url, header, content,
                     (long) postbody.getBytes().length, httpMethod);

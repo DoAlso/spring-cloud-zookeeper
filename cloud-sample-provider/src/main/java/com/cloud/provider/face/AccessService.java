@@ -1,4 +1,4 @@
-package com.cloud.provider.http;
+package com.cloud.provider.face;
 
 import java.io.InputStream;
 import java.net.URL;
