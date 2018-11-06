@@ -157,7 +157,7 @@ public class FaceHttpClient {
      * @param requestUrl
      * @param postbody
      */
-    public static void post(String serviceName,String region,String ak, String sk, String requestUrl,
+    public static String post(String serviceName,String region,String ak, String sk, String requestUrl,
                             String postbody) {
 
         AccessService accessService = new AccessServiceImpl(serviceName,
@@ -177,13 +177,13 @@ public class FaceHttpClient {
             header.put("Content-Type", "application/json");
             response = accessService.access(url, header, content,
                     (long) postbody.getBytes().length, httpMethod);
-            System.out.println(convertStreamToString(response.getEntity()
-                    .getContent()));
+            return convertStreamToString(response.getEntity().getContent());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             accessService.close();
         }
+        return null;
     }
 
     private static String convertStreamToString(InputStream is) {

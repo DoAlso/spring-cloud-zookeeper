@@ -1,6 +1,7 @@
 package com.cloud.provider;
 
 import com.cloud.provider.configuration.DISConfiguration;
+import com.cloud.provider.configuration.FaceConfiguration;
 import com.cloud.provider.configuration.OBSConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableConfigurationProperties({OBSConfiguration.class, DISConfiguration.class})
+@EnableConfigurationProperties({OBSConfiguration.class, DISConfiguration.class, FaceConfiguration.class})
 public class ProviderApplication {
 
 

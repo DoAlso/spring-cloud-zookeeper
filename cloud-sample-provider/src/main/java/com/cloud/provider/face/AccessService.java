@@ -16,13 +16,13 @@ import com.cloud.sdk.http.HttpMethodName;
  */
 public abstract class AccessService {
 
-    protected String serviceName = null;
+    protected String serviceName;
 
-    protected String region = null;
+    protected String region;
 
-    protected String ak = null;
+    protected String ak;
 
-    protected String sk = null;
+    protected String sk;
 
     public AccessService(String serviceName, String region, String ak, String sk) {
         this.region = region;
@@ -35,7 +35,7 @@ public abstract class AccessService {
                                         HttpMethodName httpMethod) throws Exception;
 
     public HttpResponse access(URL url, Map<String, String> header, HttpMethodName httpMethod) throws Exception {
-        return this.access(url, header, null, 0l, httpMethod);
+        return this.access(url, header, null, 0L, httpMethod);
     }
 
     public HttpResponse access(URL url, InputStream content, Long contentLength, HttpMethodName httpMethod)
