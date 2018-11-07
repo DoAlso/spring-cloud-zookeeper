@@ -4,61 +4,34 @@ package com.cloud.provider.bean;
  * @ClassName Face
  * @Description TODO
  * @Author Administrator
- * @DATE 2018/11/6 13:34
+ * @DATE 2018/11/7 10:31
  */
 public class Face {
-    private String camera_id;
-    private String face_id;
-    private String ori_img_id;
-    private Long time;
-    private Bbox bbox;
-    private String image_data;
+    private BoundingBox bounding_box;
+    private Attributes attributes;
+    private Landmark landmark;
 
-    public String getCamera_id() {
-        return camera_id;
+    public BoundingBox getBounding_box() {
+        return bounding_box;
     }
 
-    public void setCamera_id(String camera_id) {
-        this.camera_id = camera_id;
+    public void setBounding_box(BoundingBox bounding_box) {
+        this.bounding_box = bounding_box;
     }
 
-    public String getFace_id() {
-        return face_id;
+    public Attributes getAttributes() {
+        return attributes;
     }
 
-    public void setFace_id(String face_id) {
-        this.face_id = face_id;
+    public void setAttributes(Attributes attributes) {
+        this.attributes = attributes;
     }
 
-    public String getOri_img_id() {
-        return ori_img_id;
+    public Landmark getLandmark() {
+        return landmark;
     }
 
-    public void setOri_img_id(String ori_img_id) {
-        this.ori_img_id = ori_img_id;
-    }
-
-    public Long getTime() {
-        return time;
-    }
-
-    public void setTime(Long time) {
-        this.time = time;
-    }
-
-    public Bbox getBbox() {
-        return bbox;
-    }
-
-    public void setBbox(Bbox bbox) {
-        this.bbox = bbox;
-    }
-
-    public String getImage_data() {
-        return image_data;
-    }
-
-    public void setImage_data(String image_data) {
-        this.image_data = image_data;
+    public void setLandmark(Landmark landmark) {
+        this.landmark = landmark;
     }
 }

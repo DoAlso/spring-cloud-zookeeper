@@ -1,6 +1,7 @@
 package com.cloud.provider.service.impl;
 
-import com.cloud.provider.bean.Face;
+import com.cloud.provider.bean.FaceCaptured;
+import com.cloud.provider.bean.Faces;
 import com.cloud.provider.configuration.FaceConfiguration;
 import com.cloud.provider.face.FaceHttpClient;
 import com.cloud.provider.service.TestService;
@@ -13,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,7 +35,7 @@ public class TestServiceImpl implements TestService {
                 record.getPartitionKey(),
                 record.getSequenceNumber(),
                 Thread.currentThread().getName());
-        Face face = FastJsonUtil.toBean(new String(record.getData().array()),Face.class);
+        FaceCaptured face = FastJsonUtil.toBean(new String(record.getData().array()), FaceCaptured.class);
         //获取人脸标签信息
         Map<String,Object> params = new HashMap<>(2);
         params.put("image_base64",face.getImage_data());
@@ -47,6 +47,5 @@ public class TestServiceImpl implements TestService {
                 ConstantUtil.getFaceUrl(faceProperties,ConstantUtil.FACE_DETECT),FastJsonUtil.toJSONString(params));
         LOGGER.info("result is : {}",result);
         // 将抓拍的数据上传到OBS并将返回的信息存入本地库进行关联
-
     }
 }
