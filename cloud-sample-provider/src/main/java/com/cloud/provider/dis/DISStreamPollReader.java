@@ -41,11 +41,6 @@ public class DISStreamPollReader implements DISStreamReader {
      */
     private String cursorType = PartitionCursorTypeEnum.AT_TIMESTAMP.name();
 
-    /**
-     * 配置每次最多获取的条数
-     */
-    private int limit = 10000;
-
 
     @Override
     public void reader(DIS dis, String streamName){
@@ -63,7 +58,6 @@ public class DISStreamPollReader implements DISStreamReader {
             GetRecordsRequest recordsRequest = new GetRecordsRequest();
             while(true){
                 recordsRequest.setPartitionCursor(cursor);
-                recordsRequest.setLimit(limit);
                 GetRecordsResult recordResponse = dis.getRecords(recordsRequest);
                 // 下一批数据游标
                 cursor = recordResponse.getNextPartitionCursor();
@@ -84,7 +78,12 @@ public class DISStreamPollReader implements DISStreamReader {
 
 
     private void collection(Record record) {
-        disStreamCollector.collection(record);
+        try {
+            disStreamCollector.collection(record);
+        }catch (Exception e){
+            LOGGER.info("Failed collection face record, exception is : {}",e.getMessage());
+        }
+
     }
 
     public void setDisStreamCollector(DISStreamCollector disStreamCollector) {

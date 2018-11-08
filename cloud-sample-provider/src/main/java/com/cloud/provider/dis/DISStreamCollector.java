@@ -14,6 +14,6 @@ public interface DISStreamCollector {
      * 数据采集
      * @param record
      */
-    void collection(Record record);
+    void collection(Record record) throws Exception;
 
 }

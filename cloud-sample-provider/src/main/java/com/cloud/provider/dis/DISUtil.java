@@ -13,6 +13,7 @@ public class DISUtil {
 
     private static DISStreamReader diStreamReader;
 
+    private static DISStreamManager streamManager;
 
     public static DIS getInstance(DISConfiguration disProperties) {
         if (dis == null) {
@@ -37,6 +38,14 @@ public class DISUtil {
 
     public static void reader(String streamName){
         diStreamReader.reader(dis,streamName);
+    }
+
+    public static void createStream(String streamName) throws Exception{
+        streamManager.createStream(dis,streamName);
+    }
+
+    public static void deleteStream(String streamName) throws Exception{
+        streamManager.deleteStream(dis,streamName);
     }
 
     public static void setDiStreamReader(DISStreamReader diStreamReader) {

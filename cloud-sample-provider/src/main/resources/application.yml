@@ -6,6 +6,11 @@ spring:
   cloud:
     zookeeper:
       connect-string: 106.12.97.129:2181
+  datasource:
+    url: jdbc:mysql:///hw_face?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: qwe12356
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 huawei:
   obs:
@@ -29,3 +34,7 @@ huawei:
     end-point: face.cn-north-1.myhuaweicloud.com
     api-version: v1
     service-name: frs
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.cloud.provider.bean
