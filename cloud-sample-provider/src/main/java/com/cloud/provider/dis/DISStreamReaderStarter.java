@@ -3,7 +3,6 @@ package com.cloud.provider.dis;
 import com.cloud.provider.configuration.DISConfiguration;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 /**
  * @ClassName DISStreamReaderStarter
@@ -13,16 +12,13 @@ import java.util.concurrent.ExecutorService;
  */
 public class DISStreamReaderStarter {
 
-    private ExecutorService executorService;
-
     private List<String> projectStreams;
 
     private DISConfiguration disProperties;
 
     private DISStreamReader diStreamReader;
 
-    public DISStreamReaderStarter(ExecutorService executorService, List<String> projectStreams, DISStreamReader streamReader, DISConfiguration disProperties){
-        this.executorService = executorService;
+    public DISStreamReaderStarter(List<String> projectStreams, DISStreamReader streamReader, DISConfiguration disProperties){
         this.projectStreams = projectStreams;
         this.diStreamReader = streamReader;
         this.disProperties = disProperties;
@@ -34,6 +30,6 @@ public class DISStreamReaderStarter {
     public void start(){
         DISUtil.getInstance(disProperties);
         DISUtil.setDiStreamReader(diStreamReader);
-        projectStreams.forEach((item)-> executorService.execute(()-> DISUtil.reader(item)));
+        projectStreams.forEach((item)-> DISUtil.reader(item));
     }
 }

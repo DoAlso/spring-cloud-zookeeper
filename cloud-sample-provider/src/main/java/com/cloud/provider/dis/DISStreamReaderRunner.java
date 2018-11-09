@@ -33,9 +33,7 @@ public class DISStreamReaderRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         DISStreamPollReader disStreamReader = new DISStreamPollReader();
         disStreamReader.setDisStreamCollector(faceDataCollector);
-        DISStreamReaderStarter readerStarter = new DISStreamReaderStarter(
-                new ThreadPoolExecutor(1,5,60L, TimeUnit.SECONDS,new LinkedBlockingQueue<>()),
-                stringMap,disStreamReader,disProperties);
+        DISStreamReaderStarter readerStarter = new DISStreamReaderStarter(stringMap,disStreamReader,disProperties);
         readerStarter.start();
     }
 }

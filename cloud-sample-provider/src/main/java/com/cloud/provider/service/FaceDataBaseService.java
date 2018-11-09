@@ -27,7 +27,8 @@ public interface FaceDataBaseService {
 
     /**
      * 删除人脸库
+     * @param id
      * @throws Exception
      */
-    boolean deleteFaceDataBase() throws Exception;
+    boolean deleteFaceDataBaseById(Long id) throws Exception;
 }

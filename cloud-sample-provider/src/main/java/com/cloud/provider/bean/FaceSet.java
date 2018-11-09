@@ -47,7 +47,7 @@ public class FaceSet implements Serializable {
      *
      * @mbg.generated
      */
-    private Long faceSetCapacity;
+    private Integer faceSetCapacity;
 
     /**
      *
@@ -179,7 +179,7 @@ public class FaceSet implements Serializable {
      *
      * @mbg.generated
      */
-    public Long getFaceSetCapacity() {
+    public Integer getFaceSetCapacity() {
         return faceSetCapacity;
     }
 
@@ -191,7 +191,7 @@ public class FaceSet implements Serializable {
      *
      * @mbg.generated
      */
-    public void setFaceSetCapacity(Long faceSetCapacity) {
+    public void setFaceSetCapacity(Integer faceSetCapacity) {
         this.faceSetCapacity = faceSetCapacity;
     }
 

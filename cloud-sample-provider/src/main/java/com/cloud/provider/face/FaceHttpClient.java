@@ -96,7 +96,7 @@ public class FaceHttpClient {
      * @param sk
      * @param requestUrl
      */
-    public static void delete(String serviceName,String region,String ak, String sk, String requestUrl) {
+    public static String delete(String serviceName,String region,String ak, String sk, String requestUrl) {
 
         AccessService accessService = null;
 
@@ -108,14 +108,13 @@ public class FaceHttpClient {
             HttpMethodName httpMethod = HttpMethodName.DELETE;
 
             HttpResponse response = accessService.access(url, header, httpMethod);
-            System.out.println(convertStreamToString(response.getEntity()
-                    .getContent()));
+            return convertStreamToString(response.getEntity().getContent());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             accessService.close();
         }
-
+        return null;
     }
 
     /**
@@ -171,7 +170,6 @@ public class FaceHttpClient {
         InputStream content = new ByteArrayInputStream(postbody.getBytes());
         HttpMethodName httpMethod = HttpMethodName.POST;
         HttpResponse response;
-
         try {
             Map<String, String> header = new HashMap<>(2);
             header.put("Content-Type", "application/json");
