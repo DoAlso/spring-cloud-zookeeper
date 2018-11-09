@@ -9,7 +9,7 @@ public interface FaceDataBaseService {
      * @param faceSetInfo
      * @throws Exception
      */
-    boolean createFaceDataBase(FaceSetInfo faceSetInfo) throws Exception;
+    String createFaceDataBase(FaceSetInfo faceSetInfo) throws Exception;
 
     /**
      * 读取指定项目下所有的人脸库

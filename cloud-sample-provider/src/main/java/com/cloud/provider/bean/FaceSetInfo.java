@@ -10,6 +10,10 @@ import java.util.Map;
  */
 public class FaceSetInfo {
     /**
+     * 人脸所属项目
+     */
+    private Long project_id;
+    /**
      *  人脸库名称
      */
     private String face_set_name;
@@ -33,6 +37,14 @@ public class FaceSetInfo {
      * 用户的自定义字段
      */
     private Map<String,Object> external_fields;
+
+    public Long getProject_id() {
+        return project_id;
+    }
+
+    public void setProject_id(Long project_id) {
+        this.project_id = project_id;
+    }
 
     public String getFace_set_name() {
         return face_set_name;
@@ -80,5 +92,18 @@ public class FaceSetInfo {
 
     public void setExternal_fields(Map<String, Object> external_fields) {
         this.external_fields = external_fields;
+    }
+
+    @Override
+    public String toString() {
+        return "FaceSetInfo{" +
+                "project_id=" + project_id +
+                ", face_set_name='" + face_set_name + '\'' +
+                ", face_set_id='" + face_set_id + '\'' +
+                ", create_date='" + create_date + '\'' +
+                ", face_set_capacity=" + face_set_capacity +
+                ", face_number=" + face_number +
+                ", external_fields=" + external_fields +
+                '}';
     }
 }

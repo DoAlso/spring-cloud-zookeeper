@@ -51,11 +51,11 @@ public class FaceHistoryServiceImpl implements FaceHistoryService {
         Map<String,Object> params = new HashMap<>(2);
         params.put("image_base64",faceCaptured.getImage_data());
         params.put("attributes","0,1,2,3,4,5");
-        LOGGER.info("Request url is : {}", ConstantUtil.getFaceUrl(faceProperties,ConstantUtil.FACE_DETECT));
+        LOGGER.info("Request url is : {}", ConstantUtil.getFaceUrl(faceProperties,ConstantUtil.FaceApi.FACE_DETECT));
         LOGGER.info("Request params is : {}",FastJsonUtil.toJSONString(params));
         String result = FaceHttpClient.post(faceProperties.getServiceName(),faceProperties.getRegion(),
                 faceProperties.getAccessKey(),faceProperties.getSecretKey(),
-                ConstantUtil.getFaceUrl(faceProperties,ConstantUtil.FACE_DETECT),FastJsonUtil.toJSONString(params));
+                ConstantUtil.getFaceUrl(faceProperties,ConstantUtil.FaceApi.FACE_DETECT),FastJsonUtil.toJSONString(params));
         LOGGER.info("result is : {}",result);
         //TODO 抓怕历史记录入库
 //        Face face = FastJsonUtil.toBean(result,Faces.class).getFaces().get(0);
