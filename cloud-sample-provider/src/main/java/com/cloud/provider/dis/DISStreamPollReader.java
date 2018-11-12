@@ -44,6 +44,7 @@ public class DISStreamPollReader implements DISStreamReader {
 
     @Override
     public void reader(DIS dis, String streamName){
+        //TODO 根据流所属的项目获取项目ID
         Executor executor =  new ThreadPoolExecutor(1,5,60L, TimeUnit.SECONDS,new LinkedBlockingQueue<>());
         executor.execute(()->{
             LOGGER.info("start read stream from {}",streamName);

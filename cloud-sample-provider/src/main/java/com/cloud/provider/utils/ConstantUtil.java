@@ -23,6 +23,8 @@ public class ConstantUtil {
     public static final class FaceApi {
         public static final String FACE_DETECT = "face-detect";
         public static final String FACE_SETS = "face-sets";
+        public static final String FACES = "faces";
+        public static final String SEARCH = "search";
     }
 
     public static class Swagger {

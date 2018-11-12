@@ -1,7 +1,10 @@
 package com.cloud.provider;
 
+import com.cloud.provider.bean.FaceCreateParam;
 import com.cloud.provider.bean.FaceSetInfo;
 import com.cloud.provider.service.FaceDataBaseService;
+import com.cloud.provider.service.FaceService;
+import com.cloud.provider.utils.FileTools;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class ProviderApplicationTests {
     @Autowired
     private FaceDataBaseService faceDataBaseService;
 
+    @Autowired
+    private FaceService faceService;
+
     @Test
     public void contextLoads() {
     }
@@ -45,6 +51,20 @@ public class ProviderApplicationTests {
     @Test
     public void testFaceDataBaseDelete() throws Exception {
         boolean result = faceDataBaseService.deleteFaceDataBaseById(1L);
+        assertThat(result).isEqualTo(true);
+    }
+
+
+    @Test
+    public void testCreateFace() throws Exception {
+        String base64 = FileTools.FileToBase64("E:\\Picture\\胡亚曦.jpg");
+        FaceCreateParam createParam = new FaceCreateParam();
+        createParam.setFace_set_name("hoolink");
+        createParam.setImage_base64(base64);
+        Map<String,Object> external_fields = new HashMap<>();
+        external_fields.put("project_id",1);
+        createParam.setExternal_fields(external_fields);
+        boolean result = faceService.createFace(createParam);
         assertThat(result).isEqualTo(true);
     }
 
