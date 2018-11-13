@@ -4,6 +4,7 @@ import com.cloud.provider.bean.FaceCreateParam;
 import com.cloud.provider.bean.FaceSetInfo;
 import com.cloud.provider.service.FaceDataBaseService;
 import com.cloud.provider.service.FaceService;
+import com.cloud.provider.service.FringeNodeService;
 import com.cloud.provider.utils.FileTools;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,9 @@ public class ProviderApplicationTests {
 
     @Autowired
     private FaceService faceService;
+
+    @Autowired
+    private FringeNodeService fringeNodeService;
 
     @Test
     public void contextLoads() {
@@ -66,6 +70,11 @@ public class ProviderApplicationTests {
         createParam.setExternal_fields(external_fields);
         boolean result = faceService.createFace(createParam);
         assertThat(result).isEqualTo(true);
+    }
+
+    @Test
+    public void testCreateFringeDevice() throws Exception {
+        fringeNodeService.createFringeDevice();
     }
 
 }

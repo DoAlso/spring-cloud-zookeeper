@@ -17,6 +17,8 @@ public class DISUtil {
 
     private static DISStreamReader diStreamReader;
 
+    private static String streamName;
+
     public static DIS getInstance(DISConfiguration disProperties) {
         if (dis == null) {
             synchronized (DISUtil.class) {
@@ -38,17 +40,16 @@ public class DISUtil {
                 .build();
     }
 
-    public static void reader(String streamName){
+    public static void reader(){
         diStreamReader.reader(dis,streamName);
     }
 
 
     /**
      * 创建DIS流
-     * @param streamName
      * @throws Exception
      */
-    public static void createStream(String streamName) throws Exception{
+    public static void createStream() throws Exception{
         CreateStreamRequest createStreamRequest = new CreateStreamRequest();
         createStreamRequest.setStreamName(streamName);
         // COMMON 普通通道; ADVANCED 高级通道
@@ -61,10 +62,9 @@ public class DISUtil {
 
     /**
      * 删除DIS流
-     * @param streamName
      * @throws Exception
      */
-    public static void deleteStream(String streamName) throws Exception{
+    public static void deleteStream() throws Exception{
         DeleteStreamRequest deleteStreamRequest = new DeleteStreamRequest();
         deleteStreamRequest.setStreamName(streamName);
         dis.deleteStream(deleteStreamRequest);
@@ -72,5 +72,9 @@ public class DISUtil {
 
     public static void setDiStreamReader(DISStreamReader diStreamReader) {
         DISUtil.diStreamReader = diStreamReader;
+    }
+
+    public static void setStreamName(String streamName) {
+        DISUtil.streamName = streamName;
     }
 }

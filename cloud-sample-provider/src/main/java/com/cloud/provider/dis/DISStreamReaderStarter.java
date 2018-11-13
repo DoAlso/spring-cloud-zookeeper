@@ -30,6 +30,9 @@ public class DISStreamReaderStarter {
     public void start(){
         DISUtil.getInstance(disProperties);
         DISUtil.setDiStreamReader(diStreamReader);
-        projectStreams.forEach((item)-> DISUtil.reader(item));
+        projectStreams.forEach((item)-> {
+            DISUtil.setStreamName(item);
+            DISUtil.reader();
+        });
     }
 }
