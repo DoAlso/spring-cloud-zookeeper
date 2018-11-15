@@ -27,6 +27,11 @@ public class ConstantUtil {
         public static final String SEARCH = "search";
     }
 
+    public static final class FaceHK{
+        public static final String CAPABILITIES = "GET /ISAPI/Intelligent/FDLib/capabilities";
+        public static final String CREATE_FACE_DATABASE = "POST /ISAPI/Intelligent/FDLib";
+    }
+
     public static class Swagger {
         public static final String TITLE = "卡孚云物联平台";
         public static final String DESCRIPTION = "本文档提供卡孚云物联平台前端调用接口说明";

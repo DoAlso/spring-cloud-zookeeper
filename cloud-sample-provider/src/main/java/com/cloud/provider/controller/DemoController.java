@@ -2,6 +2,7 @@ package com.cloud.provider.controller;
 
 import com.cloud.provider.bean.FaceSetInfo;
 import com.cloud.provider.service.FaceDataBaseService;
+import com.cloud.provider.service.FringeNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -27,6 +28,9 @@ public class DemoController {
     @Autowired
     private FaceDataBaseService faceDataBaseService;
 
+    @Autowired
+    private FringeNodeService fringeNodeService;
+
 
     @GetMapping("/serviceUrl")
     public String serviceUrl(){
@@ -47,5 +51,11 @@ public class DemoController {
     @PostMapping("/createFaceSets")
     public String createFaceDataBase(@RequestBody FaceSetInfo faceSetInfo) throws Exception{
         return faceDataBaseService.createFaceDataBase(faceSetInfo);
+    }
+
+    @PostMapping("/createFringeDevice")
+    public String createFringeDevice(){
+        fringeNodeService.createFringeDevice();
+        return "SUCCESS";
     }
 }

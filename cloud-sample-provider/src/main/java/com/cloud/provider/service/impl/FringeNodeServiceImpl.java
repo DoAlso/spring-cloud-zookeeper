@@ -46,6 +46,6 @@ public class FringeNodeServiceImpl implements FringeNodeService {
             DISUtil.setStreamName(streamName);
             DISUtil.reader();
         });
-        eventSource.notifyListenerEvents(new FringeNodeEvent("dis-test"));
+        eventSource.notifyListenerEvents(new FringeNodeEvent("dis-flow"));
     }
 }

@@ -2,6 +2,8 @@ package com.cloud.provider;
 
 import com.cloud.provider.bean.FaceCreateParam;
 import com.cloud.provider.bean.FaceSetInfo;
+import com.cloud.provider.hkface.LibrarySource;
+import com.cloud.provider.hkface.WindowsLibrarySource;
 import com.cloud.provider.service.FaceDataBaseService;
 import com.cloud.provider.service.FaceService;
 import com.cloud.provider.service.FringeNodeService;
@@ -11,6 +13,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +80,15 @@ public class ProviderApplicationTests {
     @Test
     public void testCreateFringeDevice() throws Exception {
         fringeNodeService.createFringeDevice();
+    }
+
+
+    @Test
+    public void testGetLibrary() {
+        WindowsLibrarySource librarySource = new WindowsLibrarySource();
+        librarySource.login("iDS-9616NX-I16/FA1620180517CCRRC22954263WCVU","192.168.1.175","22000","admin","hoolink@123");
+        boolean result = librarySource.checkFaceFaceCapabilities("iDS-9616NX-I16/FA1620180517CCRRC22954263WCVU");
+        assertThat(result).isEqualTo(true);
     }
 
 }
