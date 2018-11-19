@@ -10,7 +10,8 @@
 		<module>cloud-config-center</module>
 		<module>cloud-sample-provider</module>
 		<module>cloud-sample-consumer</module>
-	</modules>
+        <module>cloud-sample-gateway</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-zookeeper</name>

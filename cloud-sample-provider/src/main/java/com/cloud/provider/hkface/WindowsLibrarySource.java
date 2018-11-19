@@ -222,7 +222,7 @@ public class WindowsLibrarySource implements LibrarySource {
             }
         }
         new Thread(()->{
-            UploadSend(inputStream,name,uploadHandle);
+            uploadSend(inputStream,name,uploadHandle);
             while (true) {
                 if (-1 == uploadHandle.longValue()) {
                     return;
@@ -282,7 +282,7 @@ public class WindowsLibrarySource implements LibrarySource {
      *
      * @param inputStream
      */
-    private void UploadSend(InputStream inputStream, String name,NativeLong uploadHandle){
+    private void uploadSend(InputStream inputStream, String name,NativeLong uploadHandle){
         String strInBuffer = "<FaceAppendData><name>"+name+"</name><bornTime /><sex /><province /><certificateType /><certificateNumber /></FaceAppendData>";
         InputStream xmlfile = null;
         try {
