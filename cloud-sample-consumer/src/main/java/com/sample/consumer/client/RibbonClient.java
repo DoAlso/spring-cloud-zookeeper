@@ -19,7 +19,7 @@ public class RibbonClient {
 
     @HystrixCommand(fallbackMethod = "fallback")
     public String getServiceUrl(){
-        return restTemplate.getForObject("http://sample-provider/serviceUrl",String.class);
+        return restTemplate.getForObject("face://sample-provider/serviceUrl",String.class);
     }
 
     public String fallback(){
