@@ -16,8 +16,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @EnableConfigurationProperties({OBSConfiguration.class, DISConfiguration.class, FaceConfiguration.class})
 public class ProviderApplication {
-
-
     public static void main( String[] args ) {
         SpringApplication.run(ProviderApplication.class, args);
     }
